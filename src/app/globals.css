@@ -1,0 +1,114 @@
+/* ─── Design tokens ─────────────────────────────────────────── */
+:root {
+  --bg-page:        #F5F0E8;
+  --bg-sidebar:     #EFE9DE;
+  --bg-card:        #EDE6D9;
+
+  --text-heading:   #3D1A1A;
+  --text-body:      #6B4F4F;
+  --text-muted:     #8C6B5A;
+
+  --border:         #C9BFB0;
+
+  --font-serif:     'Lora', Georgia, serif;
+  --font-sans:      'DM Sans', system-ui, sans-serif;
+
+  --max-width:      1100px;
+  --sidebar-width:  260px;
+  --nav-height:     60px;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+body {
+  background: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ─── Typography ─────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--text-heading);
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h2 { font-size: clamp(1.25rem, 2vw, 1.6rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin-bottom: 1.25rem; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--text-heading); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ─── Layout ─────────────────────────────────────────────────── */
+.site-layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--sidebar-width);
+  gap: 0;
+  border-left: 0.5px solid var(--border);
+  border-right: 0.5px solid var(--border);
+}
+
+/* ─── Dividers & labels ──────────────────────────────────────── */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.rule {
+  height: 0.5px;
+  background: var(--border);
+  margin: 2rem 0;
+}
+
+/* ─── Post prose (used on individual post pages) ─────────────── */
+.prose {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-body);
+}
+.prose h2 { margin: 2rem 0 0.75rem; }
+.prose h3 { margin: 1.5rem 0 0.5rem; }
+.prose p  { margin-bottom: 1.4rem; }
+.prose blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1.25rem;
+  color: var(--text-muted);
+  font-family: var(--font-serif);
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+.prose code {
+  font-size: 0.875rem;
+  background: var(--bg-card);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.prose pre {
+  background: var(--bg-card);
+  padding: 1.25rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.prose pre code { background: none; padding: 0; }
