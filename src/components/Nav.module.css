@@ -1,24 +1,17 @@
 .header {
   background: var(--bg-page);
   border-bottom: 0.5px solid var(--border);
-  height: var(--nav-height);
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-.inner {
-  height: 100%;
+/* ── Desktop nav: links only, right-aligned ── */
+.desktopNav {
   display: flex;
+  justify-content: flex-end;
+  height: var(--nav-height);
   align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
-  color: var(--text-heading);
-  text-decoration: none;
 }
 
 .links {
@@ -30,7 +23,6 @@
 .link {
   font-size: 0.7rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--text-muted);
   text-decoration: none;
   transition: color 0.15s;
@@ -43,4 +35,31 @@
 
 .active {
   color: var(--text-heading);
+  font-weight: 500;
+}
+
+/* ── Mobile nav: hidden on desktop ── */
+.mobileNav {
+  display: none;
+  height: var(--nav-height);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileLogo {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--text-heading);
+  text-decoration: none;
+}
+
+.mobileLinks {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+
+@media (max-width: 700px) {
+  .desktopNav { display: none; }
+  .mobileNav  { display: flex; }
 }

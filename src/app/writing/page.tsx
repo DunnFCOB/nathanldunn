@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Blog — Jane Doe",
+  title: "Articles — Nathan Dunn",
 };
 
 export default function BlogIndex() {

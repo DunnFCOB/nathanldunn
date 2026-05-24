@@ -5,74 +5,76 @@ import styles from "./page.module.css";
 export default function Home() {
   const posts = getAllPosts();
   const [featured, ...rest] = posts;
+  const secondary = rest.slice(0, 2);
+  const latest = posts.slice(0, 4);
 
   return (
-    <div className="site-layout">
-      <div className="page-grid">
+    <div className={styles.pageWrap}>
 
-        {/* ── Main column ── */}
-        <div className={styles.main}>
-
-          {featured && (
-            <section className={styles.featured}>
-              <p className="section-label">Featured</p>
-              <Link href={`/blog/${featured.slug}`}>
-                <h1 className={styles.featTitle}>{featured.title}</h1>
-              </Link>
-              <p className={styles.featExcerpt}>{featured.excerpt}</p>
-              <p className={styles.featMeta}>
-                {featured.category && <span>{featured.category} · </span>}
-                {formatDate(featured.date)} · {featured.readingTime}
-              </p>
-            </section>
-          )}
-
-          {rest.length > 0 && (
-            <section>
-              <div className="rule" />
-              <p className="section-label">More writing</p>
-              <ul className={styles.postList}>
-                {rest.map((post) => (
-                  <li key={post.slug} className={styles.postItem}>
-                    <Link href={`/blog/${post.slug}`} className={styles.postTitle}>
-                      {post.title}
-                    </Link>
-                    <span className={styles.postDate}>
-                      {formatDate(post.date)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
+      {/* ── Left sidebar ── */}
+      <aside className={styles.leftSidebar}>
+        <div className={styles.siteId}>
+          <h1 className={styles.siteName}>Nathan Dunn</h1>
+          <p className={styles.siteTagline}>Making sense of complex topics and events.</p>
         </div>
+        <p className={styles.bio}>
+          Analyzing the world and current events with the expertise of professional finance and the wisdom of a people thousands of years old — based in Central Ohio.
+        </p>
+        <img src="/images/profile.jpeg" alt="photo of Nathan Dunn" className={styles.photo} />
+      </aside>
 
-        {/* ── Sidebar ── */}
-        <aside className={styles.sidebar}>
-          <div className={styles.sbBlock}>
-            <p className="section-label">About</p>
-            <p className={styles.sbBio}>
-              Writer, researcher, and advocate exploring climate, civic life,
-              and what it means to build things in public — from Detroit.
+      {/* ── Center column ── */}
+      <main className={styles.center}>
+        {featured && (
+          <article className={styles.featured}>
+            <p className={styles.featMeta}>
+              {featured.category && <span>{featured.category} · </span>}
+              {formatDate(featured.date)} · {featured.readingTime}
             </p>
-          </div>
-          <div className={styles.sbBlock}>
-            <p className="section-label">Location</p>
-            <p className={styles.sbDetail}>Detroit, Michigan</p>
-          </div>
-          <div className={styles.sbBlock}>
-            <p className="section-label">Interests</p>
-            <p className={styles.sbDetail}>
-              Climate<br />Civic tech<br />Local policy<br />Open data
-            </p>
-          </div>
-          <div className={styles.sbBlock}>
-            <p className="section-label">Writing since</p>
-            <p className={styles.sbDetail}>2018</p>
-          </div>
-        </aside>
+            <Link href={`/blog/${featured.slug}`}>
+              <h1 className={styles.featTitle}>{featured.title}</h1>
+            </Link>
+            <p className={styles.featExcerpt}>{featured.excerpt}</p>
+            <Link href={`/blog/${featured.slug}`} className={styles.readMore}>
+              read more
+            </Link>
+          </article>
+        )}
 
-      </div>
+        {secondary.length > 0 && (
+          <div className={styles.cardGrid}>
+            {secondary.map((post) => (
+              <article key={post.slug} className={styles.card}>
+                <p className={styles.cardMeta}>
+                  {post.category && `${post.category} · `}{formatDate(post.date)}
+                </p>
+                <Link href={`/blog/${post.slug}`}>
+                  <h2 className={styles.cardTitle}>{post.title}</h2>
+                </Link>
+                <p className={styles.cardExcerpt}>{post.excerpt}</p>
+                <Link href={`/blog/${post.slug}`} className={styles.readMore}>
+                  read more
+                </Link>
+              </article>
+            ))}
+          </div>
+        )}
+      </main>
+
+      {/* ── Right sidebar ── */}
+      <aside className={styles.rightSidebar}>
+        <p className={styles.latestLabel}>latest posts</p>
+        <ul className={styles.latestList}>
+          {latest.map((post) => (
+            <li key={post.slug} className={styles.latestItem}>
+              <Link href={`/blog/${post.slug}`} className={styles.latestTitle}>
+                {post.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
     </div>
   );
 }

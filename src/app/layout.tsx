@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -16,8 +17,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Jane Doe",
-  description: "Writer, researcher, and advocate based in Detroit.",
+  title: "Nathan Dunn",
+  description: "Jewish investment ops admin based in Columbus.",
 };
 
 export default function RootLayout({
@@ -29,7 +30,8 @@ export default function RootLayout({
     <html lang="en" className={`${lora.variable} ${dmSans.variable}`}>
       <body>
         <Nav />
-        <main>{children}</main>
+        <main className="main-content">{children}</main>
+        <Footer />
       </body>
     </html>
   );

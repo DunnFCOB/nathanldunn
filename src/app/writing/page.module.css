@@ -1,9 +1,8 @@
 .wrapper {
   max-width: 680px;
-  padding: 48px 0 72px;
+  padding: 48px 40px 72px;
   border-left: 0.5px solid var(--border);
   border-right: 0.5px solid var(--border);
-  padding: 48px 40px 72px;
 }
 
 .heading {
@@ -52,4 +51,12 @@
   font-size: 0.7rem;
   color: var(--text-muted);
   letter-spacing: 0.04em;
+}
+
+@media (max-width: 700px) {
+  .wrapper {
+    padding: 32px 20px 56px;
+    border-left: none;
+    border-right: none;
+  }
 }

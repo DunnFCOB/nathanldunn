@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
   return {
-    title: `${post.title} — Jane Doe`,
+    title: `${post.title} — Nathan Dunn`,
     description: post.excerpt,
   };
 }

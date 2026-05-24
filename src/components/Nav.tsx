@@ -6,7 +6,7 @@ import styles from "./Nav.module.css";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
+  { href: "/writing", label: "Writing" },
   { href: "/about", label: "About" },
 ];
 
@@ -15,24 +15,37 @@ export default function Nav() {
 
   return (
     <header className={styles.header}>
-      <div className={`${styles.inner} site-layout`}>
-        <Link href="/" className={styles.logo}>
-          Jane Doe
-        </Link>
-        <nav>
-          <ul className={styles.links}>
-            {links.map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className={`${styles.link} ${pathname === href ? styles.active : ""}`}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+      {/* Desktop: nav links top-right only, no logo (logo is in left sidebar) */}
+      <nav className={`${styles.desktopNav} site-layout`}>
+        <ul className={styles.links}>
+          {links.map(({ href, label }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className={`${styles.link} ${pathname === href ? styles.active : ""}`}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Mobile: full-width bar with logo + links */}
+      <div className={`${styles.mobileNav} site-layout`}>
+        <h1 className={styles.mobileLogo}>Nathan Dunn</h1>
+        <ul className={styles.mobileLinks}>
+          {links.map(({ href, label }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className={`${styles.link} ${pathname === href ? styles.active : ""}`}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </header>
   );
