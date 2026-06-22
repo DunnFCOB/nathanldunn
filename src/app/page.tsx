@@ -31,11 +31,11 @@ export default function Home() {
               {featured.category && <span>{featured.category} · </span>}
               {formatDate(featured.date)} · {featured.readingTime}
             </p>
-            <Link href={`/blog/${featured.slug}`}>
+            <Link href={`/writing/${featured.slug}`}>
               <h1 className={styles.featTitle}>{featured.title}</h1>
             </Link>
             <p className={styles.featExcerpt}>{featured.excerpt}</p>
-            <Link href={`/blog/${featured.slug}`} className={styles.readMore}>
+            <Link href={`/writing/${featured.slug}`} className={styles.readMore}>
               read more
             </Link>
           </article>
@@ -48,11 +48,11 @@ export default function Home() {
                 <p className={styles.cardMeta}>
                   {post.category && `${post.category} · `}{formatDate(post.date)}
                 </p>
-                <Link href={`/blog/${post.slug}`}>
+                <Link href={`/writing/${post.slug}`}>
                   <h2 className={styles.cardTitle}>{post.title}</h2>
                 </Link>
                 <p className={styles.cardExcerpt}>{post.excerpt}</p>
-                <Link href={`/blog/${post.slug}`} className={styles.readMore}>
+                <Link href={`/writing/${post.slug}`} className={styles.readMore}>
                   read more
                 </Link>
               </article>
