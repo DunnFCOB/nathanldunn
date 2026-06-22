@@ -4,9 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    optimizePackageImports: ["next-mdx-remote"],
-  },
 };
 
 module.exports = nextConfig;
