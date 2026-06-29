@@ -54,7 +54,7 @@ h3 { font-size: 1.15rem; }
 p { margin-bottom: 1.25rem; }
 p:last-child { margin-bottom: 0; }
 
-a { color: var(--text-heading); text-decoration: none; }
+a { color: var(--text-heading); text-decoration: underline; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ─── Layout ─────────────────────────────────────────────────── */
@@ -118,3 +118,12 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   margin: 1.5rem 0;
 }
 .prose pre code { background: none; padding: 0; }
+
+.prose a {
+  color: var(--text-heading);
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  text-decoration: underline; text-underline-offset: 3px;
+}
