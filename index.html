@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nathan Dunn — Back Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-page:      #F5F0E8;
+      --bg-sidebar:   #EFE9DE;
+      --text-heading: #3D1A1A;
+      --text-body:    #6B4F4F;
+      --text-muted:   #8C6B5A;
+      --border:       #C9BFB0;
+      --font-serif:   'Lora', Georgia, serif;
+      --font-sans:    'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Nav */
+    .nav {
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    .card {
+      background: var(--bg-sidebar);
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      padding: 56px 64px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-weight: 500;
+      color: var(--text-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .rule {
+      width: 32px;
+      height: 0.5px;
+      background: var(--border);
+      margin: 20px auto;
+    }
+
+    .message {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--text-body);
+      line-height: 1.85;
+      font-style: italic;
+      margin-bottom: 28px;
+    }
+
+    .label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .email {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.875rem;
+      color: var(--text-heading);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border);
+    }
+
+    .email:hover {
+      text-decoration-color: var(--text-heading);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 0.5px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-name {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      color: var(--text-heading);
+    }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 600px) {
+      .nav { padding: 0 20px; }
+      .card { padding: 40px 28px; }
+      .footer { padding: 16px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <!-- intentionally minimal — no nav links while site is down -->
+  </header>
+
+  <main class="main">
+    <div class="card">
+      <p class="name">Nathan Dunn</p>
+      <div class="rule"></div>
+      <p class="message">
+        The site is temporarily unavailable while updates are being made.
+        Check back soon.
+      </p>
+      <p class="label">In the meantime</p>
+      <a href="mailto:me@nathanldunn.com" class="email">me@nathanldunn.com</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-name">Nathan Dunn</span>
+    <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script></span>
+  </footer>
+
+</body>
+</html>
